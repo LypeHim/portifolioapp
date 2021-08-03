@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Master</title>
+     
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Nota: ao fazer o deploy, substitua "development.js" por "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class CompA extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <p>Componente A</p>
+                    </div>
+                )
+            }
+        }
+        class CompB extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <p>Componente B</p>
+                    </div>
+                )
+            }
+        }
+        class MeuComponente extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <CompA />
+                        <hr />
+                        <CompB />
+                    </div>
+                )
+            }
+        }
+        const root = document.getElementById('root');
+        ReactDOM.render(<MeuComponente />,root)
+
+    </script>
+</body>
+</html>
