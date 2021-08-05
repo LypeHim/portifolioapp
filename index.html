@@ -34,6 +34,26 @@
                 )
             }
         }
+
+        function CompC(props) {
+            return(
+                <div>
+                    <p>Teste de nome: {props.nome}</p>    
+                </div>
+            )
+        }
+
+        class Adicao extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <p> O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}</p>
+                        <p>{this.props.texto}</p>
+                    </div>
+                )
+            }
+        }
+
         class MeuComponente extends React.Component {
             render() {
                 return (
@@ -41,6 +61,13 @@
                         <CompA />
                         <hr />
                         <CompB />
+                        <hr />
+                        <CompC nome="Felipe"/>
+                        <CompC nome="Ana"/>
+                        <hr />
+                        <Adicao  a={10} b={20} />
+                        <Adicao />
+                        <Adicao a={10} b={20} texto="Texto de teste de string"/>
                     </div>
                 )
             }
