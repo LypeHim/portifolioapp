@@ -16,31 +16,40 @@
 
     <script type="text/babel">
 
-        class CompA extends React.Component {
+        class Header extends React.Component {
             render() {
                 return (
                     <div>
-                        <p>Componente A</p>
-                    </div>
-                )
-            }
-        }
-        class CompB extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <p>Componente B</p>
+                        <h3>Header</h3>
                     </div>
                 )
             }
         }
 
-        function CompC(props) {
-            return(
-                <div>
-                    <p>Teste de nome: {props.nome}</p>    
-                </div>
-            )
+        class Content extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>Conteúdo</h1>
+                        <p>Imprimindo nome: {this.props.nome} {this.props.sobrenome}</p> 
+                        <hr />
+                        <Adicao  a={10} b={20} />
+                        <Adicao />
+                        <Adicao a={10} b={20} texto="Texto de teste de string"/> 
+                    </div>
+                )
+            }
+        }
+
+        class Footer extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h3>Footer</h3>
+                        <Tempo />
+                    </div>
+                )
+            }
         }
 
         class Adicao extends React.Component {
@@ -54,24 +63,31 @@
             }
         }
 
+        function Tempo() {
+            return (
+                <div>
+                    <p>A hora no momento é: {new Date().toLocaleTimeString()}</p>    
+                </div>
+            )
+        }
+        setInterval(Tempo, 1000); //por Alguma razão esse setInterval não funciona se não for como esta definido no tempo.html ou com o React.useEffect, preciso estudar mais para entender.
+        
         class MeuComponente extends React.Component {
             render() {
                 return (
                     <div>
-                        <CompA />
+                        <Header />
+                        <Content nome="Felipe" sobrenome="Moreira" />
                         <hr />
-                        <CompB />
-                        <hr />
-                        <CompC nome="Felipe"/>
-                        <CompC nome="Ana"/>
-                        <hr />
-                        <Adicao  a={10} b={20} />
-                        <Adicao />
-                        <Adicao a={10} b={20} texto="Texto de teste de string"/>
+                        <Footer />
+                        <hr />                        
                     </div>
                 )
             }
         }
+
+        
+
         const root = document.getElementById('root');
         ReactDOM.render(<MeuComponente />,root)
 
