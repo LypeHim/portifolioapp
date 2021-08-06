@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Master</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+        .header {
+            width: 100vw;
+            height: 300px;
+            background: rgb(72,177,58);
+            background: linear-gradient(90deg, rgba(72,177,58,1) 50%, rgba(204,204,204,1) 100%);
+            border: 5px solid black;
+        }
+
+    </style>
      
 </head>
 <body>
@@ -19,9 +33,9 @@
         class Header extends React.Component {
             render() {
                 return (
-                    <div>
+                    <header className="header">
                         <h3>Header</h3>
-                    </div>
+                    </header>
                 )
             }
         }
